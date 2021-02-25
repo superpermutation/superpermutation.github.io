@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Stars from "./Stars";
 import Title from "./Title";
 import Border from "./Border";
 import { View, StyleSheet, useWindowDimensions } from "react-native";
+import { LanguageContext } from "../util/language";
 
 const Skills = () => {
     const { width } = useWindowDimensions();
+    const { language } = useContext(LanguageContext);
     return (
         <Border style={style.border}>
-            <Title>Навыки</Title>
+            <Title>{language === "ru" ? "Навыки" : "Skills"}</Title>
             <View style={{ flexDirection: width < 770 ? "row" : "column" }}>
                 <Stars text="Ps" rating={[3, 3, 3, 3, 1]} />
                 <Stars text="Ai" rating={[3, 3, 3, 2, 0]} />
@@ -20,9 +22,6 @@ const Skills = () => {
 export default Skills;
 const style = StyleSheet.create({
     border: {
-        // paddingHorizontal: 20,
-        // paddingTop: 10,
-        // paddingBottom: 50,
         alignItems: "center",
         justifyContent: "center",
         flex: 1,

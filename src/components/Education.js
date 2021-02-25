@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, StyleSheet, View } from "react-native";
+
+import { getSize } from "../util/adaptive";
+import { LanguageContext } from "../util/language";
+import { courses, univercity } from "../const/strings";
+
 import Itmo from "../../svg/itmo.svg";
 import Courses from "../../svg/courses.svg";
-import { getSize } from "../util/adaptive";
+
 const Education = ({ uni }) => {
     const size = getSize(32);
+    const { language } = useContext(LanguageContext);
     return (
         <View style={styles.container}>
             <View style={styles.icon}>
@@ -15,9 +21,7 @@ const Education = ({ uni }) => {
                 )}
             </View>
             <Text style={styles.text}>
-                {uni
-                    ? "Университет ИТМО\nИнженер (2017-2021)"
-                    : "Онлайн-школа\nBRUSH.GURU\nКурс Иллюстратор.Ядро"}
+                {uni ? univercity[language] : courses[language]}
             </Text>
         </View>
     );

@@ -1,8 +1,8 @@
 import React from "react";
-import { Image, View, Pressable, useWindowDimensions } from "react-native";
+import { Image, useWindowDimensions } from "react-native";
 import { getImage } from "../util";
 
-const ArtWork = ({ number, onPress }) => {
+const ArtWork = ({ number }) => {
     const big = (number + 1) % 5 === 0;
 
     const source = getImage(number);
@@ -12,20 +12,14 @@ const ArtWork = ({ number, onPress }) => {
     const smallStyle = {
         width: width * 0.15 * 1.2,
         height: width * 0.2 * 1.2,
-        // flex: 1,
     };
 
     const bigStyle = {
         width: width * 0.32 * 1.2,
         height: width * 0.426 * 1.2,
-        // flex: 2,
     };
 
-    return (
-        <Pressable onPress={onPress}>
-            <Image source={source} style={big ? bigStyle : smallStyle} />
-        </Pressable>
-    );
+    return <Image source={source} style={big ? bigStyle : smallStyle} />;
 };
 
 export default ArtWork;

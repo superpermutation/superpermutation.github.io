@@ -7,8 +7,9 @@ const Stars = ({ text, rating }) => {
     return (
         <View
             style={{
-                ...styles.container,
                 flexDirection: width < 770 ? "column" : "row",
+                alignItems: "center",
+                justifyContent: "flex-end",
             }}
         >
             <Text style={styles.text}>{text}</Text>

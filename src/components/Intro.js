@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Border from "./Border";
 import { Text, StyleSheet } from "react-native";
 import { getSize } from "../util/adaptive";
+import { LanguageContext } from "../util/language";
+import { intro } from "../const/strings";
+
 const Intro = ({}) => {
+    const { language } = useContext(LanguageContext);
     return (
         <Border style={styles.border}>
-            <Text style={styles.text}>
-                Меня зовут Даша и я иллюстратор. Иллюстрации помогают наполнять
-                наш мир новыми красками, показывать обыденные вещи ярче и
-                интереснее. Я рада воплощать в жизнь самые невероятные, сложные
-                и, конечно, безумно красивые идеи.
-            </Text>
+            <Text style={styles.text}>{intro[language]}</Text>
         </Border>
     );
 };

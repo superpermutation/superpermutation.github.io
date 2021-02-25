@@ -1,8 +1,14 @@
 import React from "react";
-import { View, StyleSheet, useWindowDimensions } from "react-native";
+import {
+    View,
+    StyleSheet,
+    useWindowDimensions,
+    Dimensions,
+} from "react-native";
+import { getSize } from "../util/adaptive";
 import ArtWork from "./ArtWork";
 
-const ImagePage = ({ page, onPress }) => {
+const ImagePage = ({ page }) => {
     const { width } = useWindowDimensions();
     return (
         <View
@@ -19,39 +25,26 @@ const ImagePage = ({ page, onPress }) => {
                     flexDirection: "row",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    heigth: width * 0.4266 * 1.2,
+                    heigth: getSize(736),
                 }}
             >
                 <View style={styles.column}>
-                    <ArtWork
-                        number={page * 5}
-                        onPress={() => onPress(page * 5)}
-                    />
-                    <ArtWork
-                        number={page * 5 + 1}
-                        onPress={() => onPress(page * 5 + 1)}
-                    />
+                    <ArtWork number={page * 5} />
+                    <ArtWork number={page * 5 + 1} />
                 </View>
                 <View style={styles.column}>
-                    <ArtWork
-                        number={page * 5 + 2}
-                        onPress={() => onPress(page * 5 + 2)}
-                    />
-                    <ArtWork
-                        number={page * 5 + 3}
-                        onPress={() => onPress(page * 5 + 3)}
-                    />
+                    <ArtWork number={page * 5 + 2} />
+                    <ArtWork number={page * 5 + 3} />
                 </View>
-                <ArtWork
-                    number={page * 5 + 4}
-                    onPress={() => onPress(page * 5 + 4)}
-                />
+                <ArtWork number={page * 5 + 4} />
             </View>
         </View>
     );
 };
 
 export default ImagePage;
+
+const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
     container: {
@@ -62,7 +55,9 @@ const styles = StyleSheet.create({
     },
     column: {
         // height: 350,
-        height: "100%",
+        // height: "100%",
+        height: width * 0.426 * 1.2,
+        // flex: 1,
         justifyContent: "space-between",
         alignItems: "center",
     },

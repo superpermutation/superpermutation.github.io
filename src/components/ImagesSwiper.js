@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const ImagesSwiper = ({ onPress }) => {
+const ImagesSwiper = () => {
     const { width } = useWindowDimensions();
     return (
         <View style={{ height: width * 0.4266 * 1.2 + 50, width: "100%" }}>
@@ -40,8 +40,8 @@ const ImagesSwiper = ({ onPress }) => {
                     dotActiveStyle: styles.activeDot,
                 }}
             >
-                <ImagePage page={0} onPress={onPress} />
-                <ImagePage page={1} onPress={onPress} />
+                <ImagePage page={0} />
+                <ImagePage page={1} />
             </Swiper>
         </View>
     );

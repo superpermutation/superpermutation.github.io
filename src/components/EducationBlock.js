@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Line from "./Line";
 import Title from "./Title";
 import Education from "./Education";
 
+import { LanguageContext } from "../util/language";
+
 const EducationBlock = ({}) => {
+    const { language } = useContext(LanguageContext);
     return (
         <View style={styles.container}>
-            <Title>Образование</Title>
+            <Title>{language === "ru" ? "Образование" : "Education"}</Title>
             <Line />
             <View style={styles.ed}>
                 <Education uni />

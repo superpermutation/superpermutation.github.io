@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Border from "./Border";
 import { Text, StyleSheet } from "react-native";
 import { getSize } from "../util/adaptive";
+import { LanguageContext } from "../util/language";
+import { about } from "../const/strings";
 const About = ({}) => {
+    const { language } = useContext(LanguageContext);
     return (
         <Border style={styles.border}>
-            <Text style={styles.text}>
-                {
-                    "С самого детства я любила создавать поделки своими руками, рисовать, используя для этого различные материалы. Я росла в сером городе, который так и хотелось заполнить яркими красками, улыбчивыми людьми и положительными эмоциями. Пожалуй, именно это и привело меня в профессию Иллюстратора.\nСейчас я могу нарисовать тот самый идеальный для меня мир и показать его остальным. Но, со временем, я поняла, что иллюстрация — это история не только про красивую картинку, но и про информацию, которая легче всего усваивается визуально."
-                }
-            </Text>
+            <Text style={styles.text}>{about[language]}</Text>
         </Border>
     );
 };

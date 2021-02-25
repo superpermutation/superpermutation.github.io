@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Circles from "./Circles";
 import Title from "./Title";
 import Border from "./Border";
 import { View, StyleSheet } from "react-native";
+import { LanguageContext } from "../util/language";
 const Languages = () => {
+    const { language } = useContext(LanguageContext);
     return (
         <Border style={styles.border}>
-            <Title>Языки</Title>
+            <Title>{language === "ru" ? "Языки" : "Languages"}</Title>
             <View style={styles.container}>
                 <Circles
                     text="RU"

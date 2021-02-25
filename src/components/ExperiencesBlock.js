@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Line from "./Line";
 import Title from "./Title";
 import Experience from "./Experience";
 import { getSize } from "../util/adaptive";
+import { experienceDescription } from "../const/strings";
+import { LanguageContext } from "../util/language";
 
 const ExperiencesBlock = ({}) => {
+    const { language } = useContext(LanguageContext);
     return (
         <View style={styles.container}>
-            <Title>Опыт работы</Title>
+            <Title>{language === "ru" ? "Опыт работы" : "Experience"}</Title>
             <Line />
-            <Text style={styles.text}>
-                Мой опыт работы иллюстратором всего лишь год, но за это время я
-                успела поработать над разноплановыми проектами.
-            </Text>
+            <Text style={styles.text}>{experienceDescription[language]}</Text>
             <View style={styles.ed}>
                 <Experience icon={0} />
                 <Experience icon={1} />
@@ -40,6 +40,5 @@ const styles = StyleSheet.create({
         fontSize: getSize(20),
         textAlign: "center",
         marginTop: 5,
-        // width: 500,
     },
 });

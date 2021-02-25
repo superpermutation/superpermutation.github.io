@@ -1,26 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Ris from "../../svg/ris.svg";
 import Zai from "../../svg/zai.svg";
 import Tel from "../../svg/tel.svg";
 import { getSize } from "../util/adaptive";
+import { LanguageContext } from "../util/language";
+import { experience } from "../const/strings";
 
 const Experience = ({ icon }) => {
-    let text;
+    const { language } = useContext(LanguageContext);
+    const text = experience[language][icon];
     let image;
     const size = getSize(48);
     switch (icon) {
         case 0:
             image = <Ris width={size} height={size} />;
-            text = "Детские раскраски";
             break;
         case 1:
             image = <Tel width={size} height={size} />;
-            text = "Casual game";
             break;
         case 2:
             image = <Zai width={size} height={size} />;
-            text = "Иллюстрации для\nдетских книг";
             break;
     }
     return (
