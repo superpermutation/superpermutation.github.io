@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
-import { useFonts } from "expo-font";
+// import { useFonts } from "expo-font";
 import Title from "./src/components/Title";
 import Line from "./src/components/Line";
 import Skills from "./src/components/Skills";
@@ -18,12 +18,15 @@ import { getImage } from "./src/util";
 import { getSize } from "./src/util/adaptive";
 import { LanguageContext } from "./src//util/language";
 import LanguageSwitch from "./src/components/LanguageSwitch";
+import * as Font from "expo-font";
+import { useFonts, Neucha_400Regular } from "@expo-google-fonts/neucha";
 
 export default function App() {
-    const [loaded] = useFonts({
-        "Bradley Hand": require("./assets/fonts/Bradley Hand Bold.ttf"),
-    });
+    // const [loaded] = useFonts({
+    //     "Neucha_400Regular": require("./assets/fonts/Neucha_400Regular Bold.ttf"),
+    // });
 
+    useFonts({ Neucha_400Regular });
     const [language, setLanguage] = useState("ru");
     const changeLanguage = () =>
         setLanguage(lang => (lang === "ru" ? "en" : "ru"));
@@ -56,7 +59,7 @@ export default function App() {
                     <Languages />
                     <View
                         style={{
-                            flex: 2,
+                            flex: 2.4,
                             padding: 10,
                             maxWidth: 600,
                         }}
@@ -89,7 +92,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "flex-end",
         flex: 2,
-        minHeight: getSize(270 * 1.0829),
+        minHeight: getSize((width > 700 ? 290 : 270) * 1.0829),
         maxWidth: 600,
     },
     row: {

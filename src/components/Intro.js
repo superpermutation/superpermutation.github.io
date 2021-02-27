@@ -1,16 +1,22 @@
 import React, { useContext } from "react";
 import Border from "./Border";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import { getSize } from "../util/adaptive";
 import { LanguageContext } from "../util/language";
 import { intro } from "../const/strings";
+import Arrow from "../../svg/arrow1.svg";
 
 const Intro = ({}) => {
     const { language } = useContext(LanguageContext);
     return (
-        <Border style={styles.border}>
-            <Text style={styles.text}>{intro[language]}</Text>
-        </Border>
+        <>
+            <Border style={styles.border}>
+                <Text style={styles.text}>{intro[language]}</Text>
+            </Border>
+            <View style={styles.arrow}>
+                <Arrow width={getSize(58.8)} height={getSize(70)} />
+            </View>
+        </>
     );
 };
 export default Intro;
@@ -26,8 +32,14 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "#EDEBE6",
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         fontSize: getSize(20),
         textAlign: "center",
+    },
+    arrow: {
+        position: "absolute",
+        bottom: getSize(-21),
+        // alignSelf: "flex-end",
+        // marginLeft: "-2%",
     },
 });

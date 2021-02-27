@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     text: {
         color: "#356C7B",
         fontSize: getSize(20),
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         marginLeft: 10,
     },
     container: {

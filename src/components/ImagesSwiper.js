@@ -26,7 +26,6 @@ const ImagesSwiper = () => {
     return (
         <View style={{ height: width * 0.4266 * 1.2 + 50, width: "100%" }}>
             <Swiper
-                from={1}
                 minDistanceForAction={0.1}
                 loop
                 controlsProps={{

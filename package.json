@@ -10,6 +10,9 @@
     "predeploy": "expo build:web"
   },
   "dependencies": {
+    "@expo-google-fonts/annie-use-your-telescope": "^0.1.0",
+    "@expo-google-fonts/inter": "^0.1.0",
+    "@expo-google-fonts/neucha": "^0.1.0",
     "@expo/metro-config": "^0.1.55",
     "@expo/webpack-config": "^0.12.59",
     "@svgr/webpack": "^5.5.0",

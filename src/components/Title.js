@@ -10,7 +10,7 @@ export default Title;
 const styles = StyleSheet.create({
     main: {
         color: "#EDEBE6",
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         fontSize: getSize(32),
     },
     privet: {

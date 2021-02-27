@@ -71,13 +71,13 @@ const styles = StyleSheet.create({
     ru: {
         fontSize: getSize(16),
         color: "#EDEBE6",
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         marginLeft: getSize(7),
     },
     en: {
         fontSize: getSize(16),
         color: "#EDEBE6",
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         marginRight: getSize(7),
     },
 });

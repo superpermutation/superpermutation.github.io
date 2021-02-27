@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "#EDEBE6",
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         fontSize: getSize(32),
         marginRight: 5,
         marginTop: 10,

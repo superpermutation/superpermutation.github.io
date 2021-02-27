@@ -1073,6 +1073,21 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/annie-use-your-telescope@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/annie-use-your-telescope/-/annie-use-your-telescope-0.1.0.tgz#db7564ef2197021581ce09116ce101cd3e21bb10"
+  integrity sha512-qDaeIDp+cub3srJTuDnQ7kGiNF665/qL3Rv+58gYg/QuKj/qyvYVzNXkjgtNHhOpR53E53cAwoygNvIfnHjXcQ==
+
+"@expo-google-fonts/inter@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/inter/-/inter-0.1.0.tgz#399f068437824fcbf6aa3da5fcf490dba2af85a3"
+  integrity sha512-Y6GCqsUX6JwexQ2wmBkMiJBY6M2GpNQRTczzIGbBGhXWQxqGmP5awRcf0ZJV+OlLeJcKAzas/TW45ZLdpG3yzA==
+
+"@expo-google-fonts/neucha@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/neucha/-/neucha-0.1.0.tgz#1d3a48a2b088f1778ca287877581ef0236861596"
+  integrity sha512-ZnPwSA9doD4gRhiAgbPtn0lLSUtQHcG5m5mMBKcx4KEqQnjvkfpfAlbhWT+JfieSnpq/PEJ2OO1dDA0E6WIphw==
+
 "@expo/babel-preset-cli@0.2.18":
   version "0.2.18"
   resolved "https://registry.yarnpkg.com/@expo/babel-preset-cli/-/babel-preset-cli-0.2.18.tgz#136acf8a0efe259e29ebc614b68552e5acb47d86"

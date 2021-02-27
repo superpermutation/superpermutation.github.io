@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     text: {
         color: "#356C7B",
         fontSize: getSize(32),
-        fontFamily: "Bradley Hand",
+        fontFamily: "Neucha_400Regular",
         position: "absolute",
     },
     wave: {
