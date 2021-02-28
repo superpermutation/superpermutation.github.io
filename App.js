@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
+import {
+    StyleSheet,
+    View,
+    Dimensions,
+    useWindowDimensions,
+} from "react-native";
 import { useFonts, Neucha_400Regular } from "@expo-google-fonts/neucha";
 
 import Title from "./src/components/Title";

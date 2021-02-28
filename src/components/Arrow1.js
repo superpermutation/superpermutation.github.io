@@ -6,7 +6,7 @@ import Arrow from "../../svg/arrow1.svg";
 
 const Arrow1 = ({ arrowHeight }) => {
     const { width, height } = useWindowDimensions();
-    const mobile = width < height;
+    const mobile = width < height && width < 810;
 
     return (
         <View style={styles.container}>

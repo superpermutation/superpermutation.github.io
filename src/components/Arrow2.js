@@ -5,7 +5,7 @@ import { getSize } from "../util/adaptive";
 
 const Arrow2 = ({ arrowWidth, y, xStart }) => {
     const { width, height } = useWindowDimensions();
-    const mobile = width < height;
+    const mobile = width < height && width < 810;
 
     return (
         <View

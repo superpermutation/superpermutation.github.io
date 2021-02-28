@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     ghost: {
         position: "absolute",
-        left: getSize(18),
+        left: getSize(20),
         top: -getSize(50),
     },
 });

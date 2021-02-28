@@ -4,7 +4,7 @@ import { Svg, Path } from "react-native-svg";
 
 const Arrow3 = ({ arrowWidth, xStart }) => {
     const { width, height } = useWindowDimensions();
-    const mobile = width < height;
+    const mobile = width < height && width < 810;
 
     return (
         <View

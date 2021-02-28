@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
 import Star from "./Star";
 import { getSize } from "../util/adaptive";
 const Stars = ({ text, rating }) => {
-    const { width } = useWindowDimensions();
+    const { width, height } = useWindowDimensions();
     return (
         <View
             style={{
-                flexDirection: width < 770 ? "column" : "row",
+                flexDirection: width < 770 || height > width ? "column" : "row",
                 alignItems: "center",
                 justifyContent: "flex-end",
             }}

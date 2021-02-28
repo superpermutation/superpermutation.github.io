@@ -6,12 +6,17 @@ import { View, StyleSheet, useWindowDimensions } from "react-native";
 import { LanguageContext } from "../util/language";
 
 const Skills = ({ onLayout }) => {
-    const { width } = useWindowDimensions();
+    const { width, height } = useWindowDimensions();
     const { language } = useContext(LanguageContext);
     return (
         <Border style={style.border} onLayout={onLayout}>
             <Title>{language === "ru" ? "Навыки" : "Skills"}</Title>
-            <View style={{ flexDirection: width < 770 ? "row" : "column" }}>
+            <View
+                style={{
+                    flexDirection:
+                        width < 770 || height > width ? "row" : "column",
+                }}
+            >
                 <Stars text="Ps" rating={[3, 3, 3, 3, 1]} />
                 <Stars text="Ai" rating={[3, 3, 3, 2, 0]} />
                 <Stars text="Id" rating={[3, 3, 3, 0, 0]} />

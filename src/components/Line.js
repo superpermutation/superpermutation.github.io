@@ -9,7 +9,7 @@ export default Line;
 const styles = StyleSheet.create({
     line: {
         backgroundColor: "#F2AF33",
-        width: getSize(280),
+        width: getSize(260),
         height: 3,
         borderRadius: 10,
     },
