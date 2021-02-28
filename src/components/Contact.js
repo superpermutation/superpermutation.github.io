@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, View, Text, Linking, Pressable } from "react-native";
+import {
+    StyleSheet,
+    View,
+    Text,
+    Linking,
+    Pressable,
+    useWindowDimensions,
+} from "react-native";
 import { Hoverable } from "react-native-web-hover";
 import Inst from "../../svg/inst.svg";
 import Email from "../../svg/email.svg";
@@ -11,17 +18,28 @@ const Contact = ({ email }) => {
     const onInst = () => {
         Linking.openURL("https://instagram.com/aksamidnaya");
     };
+
+    const { width, height } = useWindowDimensions();
+    const mobile = width < height;
+
+    const size = getSize(32);
+
     return (
         <Hoverable>
             {({ hovered }) => (
                 <Pressable onPress={() => (email ? onEmail() : onInst())}>
                     <View style={styles.container}>
                         {email ? (
-                            <Email width={getSize(32)} height={getSize(32)} />
+                            <Email width={size} height={size} />
                         ) : (
-                            <Inst width={getSize(32)} height={getSize(32)} />
+                            <Inst width={size} height={size} />
                         )}
-                        <Text style={[styles.text, hovered && styles.hovered]}>
+                        <Text
+                            style={[
+                                styles.text,
+                                (hovered || mobile) && styles.hovered,
+                            ]}
+                        >
                             {email ? "aksamidnaya@gmail.com" : "@aksamidnaya"}
                         </Text>
                     </View>
