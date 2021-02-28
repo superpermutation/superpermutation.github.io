@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/static/js/app.73268d0b.chunk.js",
-    "app.js.map": "/static/js/app.73268d0b.chunk.js.map",
+    "app.js": "/static/js/app.2461ded3.chunk.js",
+    "app.js.map": "/static/js/app.2461ded3.chunk.js.map",
     "runtime~app.js": "/static/js/runtime~app.2e9f1821.js",
     "runtime~app.js.map": "/static/js/runtime~app.2e9f1821.js.map",
-    "static/js/2.e14619c4.chunk.js": "/static/js/2.e14619c4.chunk.js",
-    "static/js/2.e14619c4.chunk.js.map": "/static/js/2.e14619c4.chunk.js.map",
+    "static/js/2.62a8dbfc.chunk.js": "/static/js/2.62a8dbfc.chunk.js",
+    "static/js/2.62a8dbfc.chunk.js.map": "/static/js/2.62a8dbfc.chunk.js.map",
     "fonts/Neucha_400Regular.ttf": "/./fonts/Neucha_400Regular.ttf",
     "favicon-16.png": "/favicon-16.png",
     "favicon-32.png": "/favicon-32.png",
@@ -13,7 +13,7 @@
     "index.html": "/index.html",
     "manifest.json": "/manifest.json",
     "serve.json": "/serve.json",
-    "static/js/2.e14619c4.chunk.js.LICENSE.txt": "/static/js/2.e14619c4.chunk.js.LICENSE.txt",
+    "static/js/2.62a8dbfc.chunk.js.LICENSE.txt": "/static/js/2.62a8dbfc.chunk.js.LICENSE.txt",
     "static/media/1.png": "/static/media/1.a97a27fd.png",
     "static/media/10.png": "/static/media/10.43b96e12.png",
     "static/media/2.png": "/static/media/2.dc34fbb7.png",
@@ -29,7 +29,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.2e9f1821.js",
-    "static/js/2.e14619c4.chunk.js",
-    "static/js/app.73268d0b.chunk.js"
+    "static/js/2.62a8dbfc.chunk.js",
+    "static/js/app.2461ded3.chunk.js"
   ]
 }
