@@ -3,10 +3,10 @@ import { View, StyleSheet } from "react-native";
 import Circleempty from "../../svg/circleempty.svg";
 import Circlealmostempty from "../../svg/circlealmostempty.svg";
 import Circlefull from "../../svg/circlefull.svg";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 
 const Circle = ({ fullness }) => {
-    const size = getSize(40);
+    const size = useSize(40);
     switch (fullness) {
         case 0:
             return (

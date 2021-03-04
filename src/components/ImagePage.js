@@ -1,15 +1,15 @@
 import React from "react";
-import {
-    View,
-    StyleSheet,
-    useWindowDimensions,
-    Dimensions,
-} from "react-native";
-import { getSize } from "../util/adaptive";
+import { View, useWindowDimensions } from "react-native";
+import { useSize } from "../util/adaptive";
 import ArtWork from "./ArtWork";
 
 const ImagePage = ({ page }) => {
     const { width } = useWindowDimensions();
+    const column = {
+        height: width * 0.426 * 1.2,
+        justifyContent: "space-between",
+        alignItems: "center",
+    };
     return (
         <View
             style={{
@@ -25,14 +25,14 @@ const ImagePage = ({ page }) => {
                     flexDirection: "row",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    heigth: getSize(736),
+                    heigth: useSize(736),
                 }}
             >
-                <View style={styles.column}>
+                <View style={column}>
                     <ArtWork number={page * 5} />
                     <ArtWork number={page * 5 + 1} />
                 </View>
-                <View style={styles.column}>
+                <View style={column}>
                     <ArtWork number={page * 5 + 2} />
                     <ArtWork number={page * 5 + 3} />
                 </View>
@@ -43,22 +43,3 @@ const ImagePage = ({ page }) => {
 };
 
 export default ImagePage;
-
-const { width } = Dimensions.get("window");
-
-const styles = StyleSheet.create({
-    container: {
-        width: "85%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-    column: {
-        // height: 350,
-        // height: "100%",
-        height: width * 0.426 * 1.2,
-        // flex: 1,
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-});

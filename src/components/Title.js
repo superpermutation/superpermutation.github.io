@@ -1,18 +1,24 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 const Title = ({ color, children }) => {
     return (
-        <Text style={[styles.main, color && styles.privet]}>{children}</Text>
+        <Text
+            style={[
+                {
+                    color: "#EDEBE6",
+                    fontFamily: "Neucha_400Regular",
+                    fontSize: useSize(32),
+                },
+                color && styles.privet,
+            ]}
+        >
+            {children}
+        </Text>
     );
 };
 export default Title;
 const styles = StyleSheet.create({
-    main: {
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        fontSize: getSize(32),
-    },
     privet: {
         color: "#F2AF33",
     },

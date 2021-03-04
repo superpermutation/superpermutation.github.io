@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, View } from "react-native";
 import Ris from "../../svg/ris.svg";
 import Zai from "../../svg/zai.svg";
 import Tel from "../../svg/tel.svg";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 import { LanguageContext } from "../util/language";
 import { experience } from "../const/strings";
 
@@ -11,7 +11,7 @@ const Experience = ({ icon }) => {
     const { language } = useContext(LanguageContext);
     const text = experience[language][icon];
     let image;
-    const size = getSize(48);
+    const size = useSize(48);
     switch (icon) {
         case 0:
             image = <Ris width={size} height={size} />;
@@ -24,25 +24,26 @@ const Experience = ({ icon }) => {
             break;
     }
     return (
-        <View style={styles.container}>
+        <View
+            style={{
+                alignItems: "center",
+                marginHorizontal: useSize(20),
+                flex: 1,
+            }}
+        >
             {image}
-            <Text style={styles.text}>{text}</Text>
+            <Text
+                style={{
+                    color: "#EDEBE6",
+                    fontFamily: "Neucha_400Regular",
+                    fontSize: useSize(20),
+                    textAlign: "center",
+                    marginTop: 5,
+                }}
+            >
+                {text}
+            </Text>
         </View>
     );
 };
 export default Experience;
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        marginHorizontal: getSize(20),
-        flex: 1,
-    },
-    text: {
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        fontSize: getSize(20),
-        textAlign: "center",
-        marginTop: 5,
-    },
-});

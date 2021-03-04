@@ -10,7 +10,7 @@ import {
 import { Hoverable } from "react-native-web-hover";
 import Inst from "../../svg/inst.svg";
 import Email from "../../svg/email.svg";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 const Contact = ({ email }) => {
     const onEmail = () => {
         Linking.openURL("mailto:aksamidnaya@gmail.com");
@@ -22,7 +22,7 @@ const Contact = ({ email }) => {
     const { width, height } = useWindowDimensions();
     const mobile = width < height;
 
-    const size = getSize(32);
+    const size = useSize(32);
 
     return (
         <Hoverable>
@@ -36,7 +36,12 @@ const Contact = ({ email }) => {
                         )}
                         <Text
                             style={[
-                                styles.text,
+                                {
+                                    color: "#356C7B",
+                                    fontSize: useSize(20),
+                                    fontFamily: "Neucha_400Regular",
+                                    marginLeft: 10,
+                                },
                                 (hovered || mobile) && styles.hovered,
                             ]}
                         >
@@ -51,12 +56,6 @@ const Contact = ({ email }) => {
 export default Contact;
 
 const styles = StyleSheet.create({
-    text: {
-        color: "#356C7B",
-        fontSize: getSize(20),
-        fontFamily: "Neucha_400Regular",
-        marginLeft: 10,
-    },
     container: {
         alignItems: "center",
         flexDirection: "row",

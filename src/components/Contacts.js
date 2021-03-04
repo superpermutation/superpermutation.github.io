@@ -1,21 +1,19 @@
 import React from "react";
-import {
-    Text,
-    StyleSheet,
-    View,
-    useWindowDimensions,
-    Dimensions,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 import Contact from "./Contact";
 import Waveline from "../../svg/waveline_.svg";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 
 const Contacts = ({}) => {
-    const { width } = useWindowDimensions();
     return (
         <View style={styles.container}>
-            <Waveline width={getSize(400)} height={getSize(167)} />
-            <View style={styles.textContainer}>
+            <Waveline width={useSize(400)} height={useSize(167)} />
+            <View
+                style={{
+                    position: "absolute",
+                    paddingTop: useSize(20),
+                }}
+            >
                 <Contact email />
                 <Contact />
             </View>
@@ -28,9 +26,5 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         justifyContent: "center",
-    },
-    textContainer: {
-        position: "absolute",
-        paddingTop: getSize(20),
     },
 });

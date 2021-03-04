@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet,
 } from "react-native";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 import { LanguageContext } from "../util/language";
 
 const LanguageSwitch = () => {
@@ -22,8 +22,8 @@ const LanguageSwitch = () => {
     };
 
     const knobStyle = {
-        height: getSize(35),
-        width: getSize(35),
+        height: useSize(35),
+        width: useSize(35),
         borderRadius: 100,
         backgroundColor: "#f6c778",
         position: "absolute",
@@ -31,7 +31,7 @@ const LanguageSwitch = () => {
             {
                 translateX: node.interpolate({
                     inputRange: [0, 1],
-                    outputRange: [0, getSize(35)],
+                    outputRange: [0, useSize(35)],
                 }),
             },
         ],
@@ -40,9 +40,37 @@ const LanguageSwitch = () => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={toggle}>
-                <View style={styles.track}>
-                    <Text style={styles.ru}>EN</Text>
-                    <Text style={styles.en}>RU</Text>
+                <View
+                    style={{
+                        width: useSize(70),
+                        height: useSize(35),
+                        borderRadius: 100,
+                        backgroundColor: "#F2AF33",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                >
+                    <Text
+                        style={{
+                            fontSize: useSize(16),
+                            color: "#EDEBE6",
+                            fontFamily: "Neucha_400Regular",
+                            marginLeft: useSize(7),
+                        }}
+                    >
+                        EN
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: useSize(16),
+                            color: "#EDEBE6",
+                            fontFamily: "Neucha_400Regular",
+                            marginRight: useSize(7),
+                        }}
+                    >
+                        RU
+                    </Text>
                     <Animated.View style={knobStyle} />
                 </View>
             </TouchableOpacity>
@@ -57,27 +85,5 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 10,
         top: 10,
-    },
-    track: {
-        width: getSize(70),
-        height: getSize(35),
-        borderRadius: 100,
-        backgroundColor: "#F2AF33",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        // paddingHorizontal: 5,
-    },
-    ru: {
-        fontSize: getSize(16),
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        marginLeft: getSize(7),
-    },
-    en: {
-        fontSize: getSize(16),
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        marginRight: getSize(7),
     },
 });

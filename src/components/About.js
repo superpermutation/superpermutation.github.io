@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from "react-native";
 
 import Border from "./Border";
 
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 import { LanguageContext } from "../util/language";
 import { about } from "../const/strings";
 
@@ -11,12 +11,28 @@ import Ghost from "../../svg/ghost.svg";
 
 const About = ({ onLayout }) => {
     const { language } = useContext(LanguageContext);
+
     return (
         <Border style={styles.border} onLayout={onLayout}>
-            <View style={styles.ghost}>
-                <Ghost height={getSize(50)} width={getSize(54.44)} />
+            <View
+                style={{
+                    position: "absolute",
+                    left: useSize(20),
+                    top: -useSize(50),
+                }}
+            >
+                <Ghost height={useSize(50)} width={useSize(54.44)} />
             </View>
-            <Text style={styles.text}>{about[language]}</Text>
+            <Text
+                style={{
+                    color: "#EDEBE6",
+                    fontFamily: "Neucha_400Regular",
+                    fontSize: useSize(20),
+                    textAlign: "center",
+                }}
+            >
+                {about[language]}
+            </Text>
         </Border>
     );
 };
@@ -30,16 +46,5 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flex: 2.4,
         maxWidth: 600,
-    },
-    text: {
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        fontSize: getSize(20),
-        textAlign: "center",
-    },
-    ghost: {
-        position: "absolute",
-        left: getSize(20),
-        top: -getSize(50),
     },
 });

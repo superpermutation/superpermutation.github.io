@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
+import { View, Text, useWindowDimensions } from "react-native";
 import Star from "./Star";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 const Stars = ({ text, rating }) => {
     const { width, height } = useWindowDimensions();
     return (
@@ -12,7 +12,17 @@ const Stars = ({ text, rating }) => {
                 justifyContent: "flex-end",
             }}
         >
-            <Text style={styles.text}>{text}</Text>
+            <Text
+                style={{
+                    color: "#EDEBE6",
+                    fontFamily: "Neucha_400Regular",
+                    fontSize: useSize(32),
+                    marginRight: 5,
+                    marginTop: 10,
+                }}
+            >
+                {text}
+            </Text>
             {rating.map((star, index) => (
                 <Star fullness={star} key={index} />
             ))}
@@ -20,19 +30,3 @@ const Stars = ({ text, rating }) => {
     );
 };
 export default Stars;
-
-const styles = StyleSheet.create({
-    container: {
-        // flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "flex-end",
-        // width: "100%",
-    },
-    text: {
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        fontSize: getSize(32),
-        marginRight: 5,
-        marginTop: 10,
-    },
-});

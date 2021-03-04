@@ -1,16 +1,18 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { getSize } from "../util/adaptive";
-const Line = () => {
-    return <View style={styles.line} />;
-};
-export default Line;
+import { View } from "react-native";
+import { useSize } from "../util/adaptive";
 
-const styles = StyleSheet.create({
-    line: {
-        backgroundColor: "#F2AF33",
-        width: getSize(260),
-        height: 3,
-        borderRadius: 10,
-    },
-});
+const Line = () => {
+    return (
+        <View
+            style={{
+                backgroundColor: "#F2AF33",
+                width: useSize(260),
+                height: 3,
+                borderRadius: 10,
+            }}
+        />
+    );
+};
+
+export default Line;

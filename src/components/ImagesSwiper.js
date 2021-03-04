@@ -8,14 +8,9 @@ import {
 } from "react-native";
 import Swiper from "react-native-web-swiper/";
 import ImagePage from "./ImagePage";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 
 const styles = StyleSheet.create({
-    button: {
-        color: "#EDEBE6",
-        fontSize: getSize(40),
-        fontWeight: "500",
-    },
     activeDot: {
         backgroundColor: "#F2AF33",
     },
@@ -34,8 +29,16 @@ const ImagesSwiper = () => {
                     nextPos: "right",
                     nextTitle: "›",
                     prevTitle: "‹",
-                    nextTitleStyle: styles.button,
-                    prevTitleStyle: styles.button,
+                    nextTitleStyle: {
+                        color: "#EDEBE6",
+                        fontSize: useSize(40),
+                        fontWeight: "500",
+                    },
+                    prevTitleStyle: {
+                        color: "#EDEBE6",
+                        fontSize: useSize(40),
+                        fontWeight: "500",
+                    },
                     dotActiveStyle: styles.activeDot,
                 }}
             >

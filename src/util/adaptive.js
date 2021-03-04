@@ -1,6 +1,6 @@
-import { PixelRatio, Dimensions } from "react-native";
+import { PixelRatio, useWindowDimensions } from "react-native";
 
-const { height, width } = Dimensions.get("window");
-
-export const getSize = n =>
-    PixelRatio.roundToNearestPixel((n * Math.min(height, width)) / 719);
+export const useSize = n => {
+    const { width, height } = useWindowDimensions();
+    return PixelRatio.roundToNearestPixel((n * Math.min(height, width)) / 719);
+};

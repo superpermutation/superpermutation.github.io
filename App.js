@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-import {
-    StyleSheet,
-    View,
-    Dimensions,
-    useWindowDimensions,
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { useFonts, Neucha_400Regular } from "@expo-google-fonts/neucha";
 
 import Title from "./src/components/Title";
@@ -25,7 +20,7 @@ import Arrow1 from "./src/components/Arrow1";
 import Arrow2 from "./src/components/Arrow2";
 import Arrow3 from "./src/components/Arrow3";
 
-import { getSize } from "./src/util/adaptive";
+import { useSize } from "./src/util/adaptive";
 import { LanguageContext } from "./src//util/language";
 
 export default function App() {
@@ -33,6 +28,10 @@ export default function App() {
     const [language, setLanguage] = useState("ru");
     const changeLanguage = () =>
         setLanguage(lang => (lang === "ru" ? "en" : "ru"));
+
+    useEffect(() => {
+        console.log("v3");
+    }, []);
 
     const [arrow1Height, setArrow1Height] = useState(0);
 
@@ -45,13 +44,25 @@ export default function App() {
     const [arrow3XEnd, setArrow3XEnd] = useState(0);
     const arrow3Width = arrow3XEnd - arrow3XStart;
 
+    const { width } = useWindowDimensions();
+
     return (
         <LanguageContext.Provider value={{ language, changeLanguage }}>
             <Background>
                 <Avatar />
                 <View style={styles.row}>
                     <View style={{ flex: 1, maxWidth: 300 }} />
-                    <View style={styles.introblock}>
+                    <View
+                        style={{
+                            alignItems: "center",
+                            justifyContent: "flex-end",
+                            flex: 2,
+                            minHeight: useSize(
+                                (width > 700 ? 290 : 270) * 1.0829
+                            ),
+                            maxWidth: 600,
+                        }}
+                    >
                         <Title color>
                             {language === "ru" ? "Привет!" : "Hi!"}
                         </Title>
@@ -133,8 +144,6 @@ export default function App() {
     );
 }
 
-const { width } = Dimensions.get("window");
-
 const styles = StyleSheet.create({
     intro: {
         alignItems: "flex-end",
@@ -142,13 +151,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingRight: 40,
         paddingTop: 20,
-    },
-    introblock: {
-        alignItems: "center",
-        justifyContent: "flex-end",
-        flex: 2,
-        minHeight: getSize((width > 700 ? 290 : 270) * 1.0829),
-        maxWidth: 600,
     },
     row: {
         flexDirection: "row",

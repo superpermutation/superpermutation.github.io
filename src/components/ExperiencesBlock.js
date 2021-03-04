@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from "react-native";
 import Line from "./Line";
 import Title from "./Title";
 import Experience from "./Experience";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 import { experienceDescription } from "../const/strings";
 import { LanguageContext } from "../util/language";
 
@@ -13,7 +13,17 @@ const ExperiencesBlock = ({}) => {
         <View style={styles.container}>
             <Title>{language === "ru" ? "Опыт работы" : "Experience"}</Title>
             <Line />
-            <Text style={styles.text}>{experienceDescription[language]}</Text>
+            <Text
+                style={{
+                    color: "#EDEBE6",
+                    fontFamily: "Neucha_400Regular",
+                    fontSize: useSize(20),
+                    textAlign: "center",
+                    marginTop: 5,
+                }}
+            >
+                {experienceDescription[language]}
+            </Text>
             <View style={styles.ed}>
                 <Experience icon={0} />
                 <Experience icon={1} />
@@ -33,12 +43,5 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         paddingHorizontal: 10,
-    },
-    text: {
-        color: "#EDEBE6",
-        fontFamily: "Neucha_400Regular",
-        fontSize: getSize(20),
-        textAlign: "center",
-        marginTop: 5,
     },
 });

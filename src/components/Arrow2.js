@@ -1,11 +1,12 @@
 import React from "react";
 import { View, useWindowDimensions } from "react-native";
 import { Svg, Path } from "react-native-svg";
-import { getSize } from "../util/adaptive";
+import { useSize } from "../util/adaptive";
 
 const Arrow2 = ({ arrowWidth, y, xStart }) => {
     const { width, height } = useWindowDimensions();
     const mobile = width < height && width < 810;
+    const strokeWidth = useSize(10);
 
     return (
         <View
@@ -22,7 +23,7 @@ const Arrow2 = ({ arrowWidth, y, xStart }) => {
                     viewBox="0 0 169 44"
                     stroke="#EDEBE6"
                     fill="none"
-                    strokeWidth={getSize(10)}
+                    strokeWidth={strokeWidth}
                 >
                     <Path d="M18 16.5L1 32.5V0.5H35L18 16.5ZM18 16.5C44.1667 40 110.2 69.7 165 0.5" />
                 </Svg>
