@@ -30,7 +30,12 @@ export default function App() {
         setLanguage(lang => (lang === "ru" ? "en" : "ru"));
 
     useEffect(() => {
-        console.log("v3");
+        console.log("v4");
+        const i = navigator.userAgent.indexOf("Instagram") > -1;
+        const redirect = window.location.href.indexOf("?") > -1;
+        if (i && !redirect) {
+            window.history.pushState({}, "Aksamidnaya", "?time=" + Date.now());
+        }
     }, []);
 
     const [arrow1Height, setArrow1Height] = useState(0);
